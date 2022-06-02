@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from "react-dom";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import App from "./App";
+//import States from "./routes/states";
+//import State from "./routes/state";
+import NewSouthWales from "./routes/NewSouthWales";
+import Queensland from "./routes/Queensland";
+import SouthAustralia from "./routes/SouthAustralia";
+import Tasmania from "./routes/Tasmania";
+import Victoria from "./routes/Victoria";
+import WesternAustralia from "./routes/WesternAustralia";
+import {DarkMode} from "./DarkMode";
+
+const rootElement = document.getElementById("root");
+render(
+  
+  <BrowserRouter>
+  <DarkMode>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="NewSouthWales" element={<NewSouthWales />} />
+      <Route path="Queensland" element={<Queensland />} />
+      <Route path="SouthAustralia" element={<SouthAustralia />} />
+      <Route path="Tasmania" element={<Tasmania />} />
+      <Route path="Victoria" element={<Victoria />} />
+      <Route path="WesternAustralia" element={<WesternAustralia />} />
+    </Routes>
+    </DarkMode>
+  </BrowserRouter>,
+  
+  rootElement
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
